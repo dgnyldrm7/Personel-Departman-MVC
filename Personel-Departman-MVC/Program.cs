@@ -1,7 +1,13 @@
+using Personel_Departman_MVC.Models.DatabaseContext;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//DbContext Connection!
+builder.Services.AddDbContext<DataBaseContext>();
+
 
 var app = builder.Build();
 
@@ -22,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Personel}/{action=Anasayfa}/{id?}");
 
 app.Run();
