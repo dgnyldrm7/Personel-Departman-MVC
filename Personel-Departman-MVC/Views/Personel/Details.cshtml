@@ -1,0 +1,29 @@
+﻿@using Personel_Departman_MVC.Models.Entity
+@model Personel
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th scope="col">Name</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Email</th>
+            <th scope="col">Departman</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+
+                <td>@Model.Name</td>
+                <td>@Model.lName</td>
+                <td>@Model.Email</td>
+                <td>@Model._departman.DepartmanName</td>
+            </tr>
+       
+
+    </tbody>
+</table>
+
+<a href="/personel" class="btn btn-secondary" >Geri dön</a>

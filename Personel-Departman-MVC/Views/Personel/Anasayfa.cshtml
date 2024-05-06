@@ -1,4 +1,50 @@
-﻿
-<h5>SELAMLAR</h5>
+﻿@using Personel_Departman_MVC.Models.Entity
+@model IEnumerable<Personel>
 
-@ViewBag.degisken
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">PERSONEL</th>
+            <th scope="col">SİL</th>
+            <th scope="col">GÜNCELLE</th>
+            <th scope="col">DETAYLAR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var datas in Model)
+        {
+            <tr>
+                <th scope="row">@datas.Id</th>
+                <td>@datas.Name</td>
+                <td>
+
+                    <form asp-controller="Personel" asp-action="DeletePersonel" method="post" onsubmit="return confirm('Bu personeli silmek istediğinizden emin misiniz?');">
+                        <button type="submit" class="btn btn-danger">Sil</button>
+                        <input type="hidden" name="id" value="@datas.Id" /> <!-- Silinecek personelin ID'sini gizli bir alan olarak göndermek için -->
+                    </form>
+                </td>
+                <td>
+                    <form asp-controller="Personel" asp-action="Guncelleme" method="get">
+                        <a asp-controller="Personel" asp-action="Guncelleme" asp-route-id="@datas.Id" class="btn btn-success">Guncelleme</a>
+                    </form>
+                </td>
+                <td>
+                    <form asp-controller="Personel" asp-action="Details" method="get">
+                        <a asp-controller="Personel" asp-action="Details" asp-route-id="@datas.Id" class="btn btn-warning">Detaylar</a>
+                    </form>
+                    
+
+
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a asp-controller="Personel" asp-action="Result" class="btn btn-secondary"> Yeni Personel </a>
+

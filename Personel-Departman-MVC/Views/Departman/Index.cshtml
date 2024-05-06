@@ -1,0 +1,37 @@
+﻿@using Personel_Departman_MVC.Models.Entity
+@model IEnumerable<Departman>
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">DEPARTMAN</th>
+            <th scope="col">SİL</th>
+            <th scope="col">GÜNCELLE</th>
+            <th scope="col">DETAYLAR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var datas in Model)
+        {
+            <tr>
+                <th scope="row">@datas.Id</th>
+                <td>@datas.DepartmanName</td>
+                <td>
+                    <a> <button class="btn btn-danger">Sil</button> </a>
+                </td>
+                <td>
+                    <a> <button class="btn btn-success">Güncelle</button> </a>
+                </td>
+                <td>
+                    <a> <button class="btn btn-warning">Detaylar</button> </a>
+                </td>
+            </tr>
+        }
+        
+    </tbody> 
+</table>
+
+<a> <button class="btn btn-secondary">Yeni Departman</button> </a>
