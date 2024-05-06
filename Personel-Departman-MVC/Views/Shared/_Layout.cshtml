@@ -14,7 +14,9 @@
   <a href="/departman" class="w3-bar-item w3-button">Departmanlar</a>
   <a href="/personel" class="w3-bar-item w3-button">Personeller</a>
   <a href="/hakkimizda" class="w3-bar-item w3-button">Hakkımızda</a>
-  <a href="#" class="w3-bar-item w3-button">Çıkış</a>
+        <form asp-controller="Login" asp-action="Logout" method="get">
+            <a asp-controller="Login" asp-action="Logout" class="w3-bar-item w3-button">Güvenli Çıkış</a>
+        </form>
 </div>
 
 <!-- Page Content -->

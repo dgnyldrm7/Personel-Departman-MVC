@@ -1,1 +1,16 @@
-﻿<h5>HOŞ GELDİNİZ!</h5>
+﻿<h5>Ana Sayfa</h5>
+
+
+<h1> 
+	@{
+		var alert = TempData["Username"];
+		if( alert != null  )
+		{
+
+			<div class="aler alert-success">
+				<h5>Hoşgeldin @TempData["Username"]</h5>
+			</div>
+		}
+	}
+
+</h1>

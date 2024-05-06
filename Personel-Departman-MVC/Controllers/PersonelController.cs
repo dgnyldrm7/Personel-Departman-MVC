@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Core.Types;
 using Personel_Departman_MVC.Models.DatabaseContext;
@@ -6,6 +7,7 @@ using Personel_Departman_MVC.Models.Entity;
 
 namespace Personel_Departman_MVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PersonelController : Controller
     {
         private readonly DataBaseContext _context;

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Personel_Departman_MVC.Models.DatabaseContext;
@@ -9,6 +10,18 @@ builder.Services.AddControllersWithViews();
 
 //DbContext Connection!
 builder.Services.AddDbContext<DataBaseContext>();
+
+
+//Cookie Configure Setting
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie( options =>
+{
+    options.Cookie.Name = "mvcProject";
+    options.LoginPath = "/login";
+    options.AccessDeniedPath = "/Account/AccesDenied";
+    options.SlidingExpiration = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+} );
+
 
 
 var app = builder.Build();
@@ -26,7 +39,15 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
+//added middleware struct!
+app.UseAuthentication();
 app.UseAuthorization();
+
+
+
+
+
 
 //Departman Listeleme:
 app.MapControllerRoute(
@@ -65,22 +86,30 @@ app.MapControllerRoute(
 // Personel Silmek
 app.MapControllerRoute(
     name: "PersonelDelete",
-    pattern: "personel/delete/{id?}", // Farklý bir desen kullanarak silme iþlemi için
+    pattern: "personel/delete/{id?}", 
     defaults: new { controller = "Personel", action = "DeletePersonel" }
 );
 
 //Personel Guncelleme
 app.MapControllerRoute(
     name: "PersonelGuncelleme",
-    pattern: "personel/guncelleme/{id?}", // Farklý bir desen kullanarak silme iþlemi için
+    pattern: "personel/guncelleme/{id?}", 
     defaults: new { controller = "Personel", action = "Guncelleme" }
 );
 
 //Hakkimizda
 app.MapControllerRoute(
     name: "Hakkimizda",
-    pattern: "hakkimizda", // Farklý bir desen kullanarak silme iþlemi için
+    pattern: "hakkimizda", 
     defaults: new { controller = "Home", action = "Hakkimizda" }
+);
+
+
+//Giriþ - Login
+app.MapControllerRoute(
+    name: "Login",
+    pattern: "login", 
+    defaults: new { controller = "Login", action = "Login" }
 );
 
 

@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Personel_Departman_MVC.Models.DatabaseContext;
 
 namespace Personel_Departman_MVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DepartmanController : Controller
     {
 
