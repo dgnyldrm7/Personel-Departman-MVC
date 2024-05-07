@@ -10,4 +10,9 @@ Basic MVC Crud and Authoriza - database is MsSQL
 4 ) ![image](https://github.com/dgnyldrm7/Personel-Departman-MVC/assets/94688501/df220c7f-1bb6-41da-8b5a-47886209b5f3)
 
 
+## Relationship
+![image](https://github.com/dgnyldrm7/Personel-Departman-MVC/assets/94688501/d39183f1-3374-4144-8978-68ed45ebec2b)
+
+
+
 
