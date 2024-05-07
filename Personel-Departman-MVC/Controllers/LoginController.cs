@@ -32,6 +32,7 @@ namespace Personel_Departman_MVC.Controllers
                 {
                     new Claim(ClaimTypes.Name, username),
                     new Claim(ClaimTypes.Role, "Admin"), // Kullanıcının rolünü belirle
+                    new Claim(ClaimTypes.Role, "User"), // Kullanıcının rolünü belirle
                 };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -52,6 +53,12 @@ namespace Personel_Departman_MVC.Controllers
             return RedirectToAction("Login");
         }
 
+
+
+
+
+
+        //Password and Username for login!
         private bool IsValidUser(string username, string password)
         {
             // Kullanıcı adı ve şifreyi veritabanında kontrol et
@@ -60,6 +67,11 @@ namespace Personel_Departman_MVC.Controllers
         }
 
 
+
+
+
+
+        //Logout method!
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

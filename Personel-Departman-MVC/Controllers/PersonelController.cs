@@ -81,6 +81,7 @@ namespace Personel_Departman_MVC.Controllers
         [HttpGet]
         public IActionResult Result()
         {
+ 
             return View();
         }
         [HttpPost]

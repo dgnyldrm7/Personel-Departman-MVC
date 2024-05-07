@@ -11,7 +11,7 @@ using Personel_Departman_MVC.Models.DatabaseContext;
 namespace Personel_Departman_MVC.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20240505131439_Initialize")]
+    [Migration("20240507112158_Initialize")]
     partial class Initialize
     {
         /// <inheritdoc />

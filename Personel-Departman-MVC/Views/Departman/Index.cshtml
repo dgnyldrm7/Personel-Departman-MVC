@@ -20,13 +20,27 @@
                 <th scope="row">@datas.Id</th>
                 <td>@datas.DepartmanName</td>
                 <td>
-                    <a> <button class="btn btn-danger">Sil</button> </a>
+
+                    <form method="get" asp-controller="Departman" asp-action="Delete" asp-route-id="@datas.Id" onsubmit="return confirm('Silmek istediğine emin misin, tüm personeller de beraberinde silinecek?');">
+                        <input type="hidden" name="Id" value="@datas.Id">
+                        <button class="btn btn-danger" type="submit" >Sil</button>
+                    </form>
+
+                   
                 </td>
                 <td>
-                    <a> <button class="btn btn-success">Güncelle</button> </a>
+                    <form method="get" asp-controller="Departman" asp-action="Update" asp-route-id="@datas.Id">
+                        <button class="btn btn-success" type="submit">Güncelle</button>
+                    </form>
+
                 </td>
                 <td>
-                    <a> <button class="btn btn-warning">Detaylar</button> </a>
+
+                    <form method="get" asp-controller="Departman" asp-action="Details" asp-route-id="@datas.Id">
+                        <button class="btn btn-warning" type="submit">Detaylar</button>
+                    </form>
+
+     
                 </td>
             </tr>
         }
@@ -34,4 +48,4 @@
     </tbody> 
 </table>
 
-<a> <button class="btn btn-secondary">Yeni Departman</button> </a>
+<a asp-controller="Departman" asp-action="Newdepartman" class="btn btn-secondary"> Yeni Departman </a>

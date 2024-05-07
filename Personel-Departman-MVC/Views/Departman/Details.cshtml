@@ -1,0 +1,50 @@
+﻿@using Personel_Departman_MVC.Models.Entity;
+@model Departman
+
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Departman Detayları</h1>
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th scope="col">Departman İsmi</th>
+            <th scope="col">Departman Açıklaması</th>
+            <th scope="col">Departman Çalışanları</th>
+ 
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+            
+
+            <td>@Model.DepartmanName</td>
+            <td>@Model.DepartmanDescription</td>
+            <td>
+
+                @if (Model._personels == null || !Model._personels.Any())
+                {
+                    <p class="text-danger" >Personel Kayıtlı Değil!</p>
+                }
+
+                @foreach (var personel in Model._personels)
+                {
+                    <div>@personel.Name</div>
+
+                }
+            </td>
+        </tr>
+
+
+    </tbody>
+</table>
+
+<a asp-asp-controller="Departman" asp-action="Index" class="btn btn-secondary">Geri dön</a>
