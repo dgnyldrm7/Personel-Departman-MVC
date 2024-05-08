@@ -1,5 +1,5 @@
 # Project Name
-Basic MVC Crud and Authoriza - database is MsSQL
+Basic MVC Crud and Authorize - database is MsSQL
 
 
 ## Screen Shots
